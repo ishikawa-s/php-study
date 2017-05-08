@@ -11,3 +11,5 @@ class user extends BaseUser{
 		echo "hello from user";
 	}
 }
+
+sayHi();
