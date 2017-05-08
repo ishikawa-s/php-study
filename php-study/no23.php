@@ -12,4 +12,5 @@ class user extends BaseUser{
 	}
 }
 
-sayHi();
+$greet = new user;
+$greet.sayHi();
