@@ -5,7 +5,7 @@ header('Content-type: text/html; charset=UTF-8');
 <html>
 <body>
 <?php
-	$str = 'クジラ';
+	$str = 'カツオ';
 	echo $str, 'です。<br>', PHP_EOL;
 
 	switch ($str){
