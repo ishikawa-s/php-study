@@ -18,6 +18,8 @@ header('Content-type: text/html; charset=UTF-8');
 	echo $arr1[1], '<br>';
 	echo $arr1[2], '<br>';
 
+	echo '<br>', PHP_EOL;
+
 	echo $arr2['spring'], '<br>';
 	echo $arr2['summer'], '<br>';
 	echo $arr2['autumn'], '<br>';
