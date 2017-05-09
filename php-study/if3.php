@@ -6,7 +6,7 @@ header('Content-type: text/html; charset=UTF-8');
 <body>
 <?php
 	$ninzu = 12;
-	$yosan = 5000;
+	$yosan = 3000;
 
 	echo '人数は、', $ninzu, '人です。<br>';
 	echo '予算は、', $yosan, '円です。<br>';
