@@ -52,7 +52,7 @@
 			echo '<input type="checkbox" name="chktodo[]" value="';
 			echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8');
 			echo '">';
-			echo htmlspecialchars($row['todo'], ENT_QUOTES, 'UTF-8'), PHP_EOL;
+			echo htmlspecialchars($row['todo'], ENT_QUOTES, 'UTF-8');
 		}
 	?>
 	</pre>
