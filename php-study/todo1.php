@@ -50,6 +50,14 @@
 			$sth->bindValue(1, $_POST['todocont'], PDO::PARAM_STR);
 			$sth->bindValue(2, $prio, PDO::PARAM_INT);
 			$sth->execute();
+		}elseif (isset($_POST['delete'], $_POST['chktodo'])){
+			$sql = 'DELETE FROM todolist WHERE id = ?';
+			$sth = $dbh->prepare($sql);
+			foreach ($_POST['chktodo'] as $chk){
+				$id = (int)$chk;
+				$sth->bindValue(1, $id, PDO::PARAM_INT);
+				$sth->execute();
+			}
 		}
 
 		if ($prioDisp == 2){
