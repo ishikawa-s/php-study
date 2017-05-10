@@ -44,7 +44,6 @@
 			$sth->bindValue(2, $prio, PDO::PARAM_INT);
 			$sth->execute();
 		}
-		$dbh = null;
 
 		$sql = 'SELECT id, todo FROM todolist';
 		$sth = $dbh->prepare($sql);
