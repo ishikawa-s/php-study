@@ -29,7 +29,7 @@
 		<input type="submit" name="search" value="検索">
 		<input type="submit" name="delete" value="削除">
 	<pre>
-	<?php
+<?php
 		$dsn = 'mysql:dbname=php_test;host=localhost;charset=utf8mb4';
 		$user = 'ishikawa_s';
 		$password = 'ishikawa_s';
