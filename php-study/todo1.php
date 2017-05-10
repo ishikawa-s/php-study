@@ -45,6 +45,16 @@
 			$sth->execute();
 		}
 		$dbh = null;
+
+		$sql = 'SELECT id, todo FROM todolist';
+		$sth = $dbh->prepare($sql);
+		$sth->execute();
+		while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
+			echo '<input type="checkbox" name="chktodo[]" value="';
+			echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8');
+			echo '">';
+			echo htmlspecialchars($row['todo'], ENT_QUOTES, 'UTF-8'), PHP_EOL;
+		}
 	?>
 	</pre>
 	</form>
