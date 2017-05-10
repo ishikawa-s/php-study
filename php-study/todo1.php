@@ -23,13 +23,13 @@
 		<input type="submit" name="delete" value="削除">
 	<pre>
 	<?php
-		$dsn = 'mysql:dbname=php_test; host=localhost; charset=utf-8mb4';
+		$dsn = 'mysql:dbname=php_test;host=localhost;charset=utf8mb4';
 		$user = 'ishikawa_s';
 		$password = 'ishikawa_s';
 		try{
 			$dbh = new PDO($dsn, $user, $password);
 		}catch (PDOException $e){
-			die('Connect error: '. $e->getCode());
+			die('Connect error: '. $e->getMessage());
 		}
 
 		$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
