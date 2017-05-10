@@ -11,11 +11,18 @@
 	if(isset($_POST['priority'])){
 		$prio = (int)$_POST['priority'];
 	}
+
+	if (isset($_POST['search'])){
+		if ($prio == 0 || $prio == 1){
+			$prioDisp = $prio;
+		}
+	}
+	$selStr[$prioDisp] = 'selected;'
 	?>
 		<select name='priority'>
-		<option value="2">すべて
-		<option value="1">高
-		<option value="0">低
+		<option value="2" <?php echo $selStr[2]; ?>>すべて
+		<option value="1" <?php echo $selStr[1]; ?>>高
+		<option value="0" <?php echo $selStr[0]; ?>>低
 		</select>
 		<br><br>
 		<input type="submit" name="insert" value="追加">
@@ -45,8 +52,14 @@
 			$sth->execute();
 		}
 
+		if ($prioDisp == 2){
 		$sql = 'SELECT id, todo FROM todolist';
 		$sth = $dbh->prepare($sql);
+		}else{
+			$sql = 'SELECT id, todo FROM todolist WHERE prio = ?';
+			$sth = $dbh->prepare($sql);
+			$sth->bindValue(1, $prioDisp,PDO::PARAM_INT);
+		}
 		$sth->execute();
 		while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
 			echo '<input type="checkbox" name="chktodo[]" value="';
