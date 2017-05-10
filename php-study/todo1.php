@@ -8,11 +8,11 @@
 	$prioDisp = 2;
 	$selStr = array('', '', '');
 	$prio = 0;
-	if(isset($_POST['priority'])){
+	if(isset($_POST['priority'])){ //優先度が入っていれば
 		$prio = (int)$_POST['priority'];
 	}
 
-	if (isset($_POST['search'])){
+	if (isset($_POST['search'])){ //検索ボタンが押されたら
 		if ($prio == 0 || $prio == 1){
 			$prioDisp = $prio;
 		}
@@ -47,8 +47,8 @@
 			}
 			$sql = 'INSERT INTO todolist (todo, prio, created) VALUES (?, ?, CURDATE())';
 			$sth = $dbh->prepare($sql);
-			$sth->bindValue(1, $_POST['todocont'], PDO::PARAM_STR);
-			$sth->bindValue(2, $prio, PDO::PARAM_INT);
+			$sth->bindValue(1, $_POST['todocont'], PDO::PARAM_STR); //プレースホルダー1番にstring型で代入
+			$sth->bindValue(2, $prio, PDO::PARAM_INT);	//プレースホルダー2番にint型で代入
 			$sth->execute();
 		}elseif (isset($_POST['delete'], $_POST['chktodo'])){
 			$sql = 'DELETE FROM todolist WHERE id = ?';
@@ -69,9 +69,9 @@
 			$sth->bindValue(1, $prioDisp,PDO::PARAM_INT);
 		}
 		$sth->execute();
-		while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
+		while ($row = $sth->fetch(PDO::FETCH_ASSOC)){ //selectで取得した配列を順番に呼び出す
 			echo '<input type="checkbox" name="chktodo[]" value="';
-			echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8');
+			echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8'); //特殊文字の変換
 			echo '">';
 			echo htmlspecialchars($row['todo'], ENT_QUOTES, 'UTF-8'), PHP_EOL;
 		}
