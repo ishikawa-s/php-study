@@ -23,7 +23,7 @@
 		<input type="submit" name="delete" value="削除">
 	<pre>
 	<?php
-		$dsn = 'mysql:dbname=php_test; host=localhost; charset=utf-8';
+		$dsn = 'mysql:dbname=php_test; host=localhost; charset=utf-8mb4';
 		$user = 'ishikawa_s';
 		$password = 'ishikawa_s';
 		try{
