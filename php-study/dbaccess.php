@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("localhost", "root", "") or die("接続失敗");
+$con = mysql_connect("localhost", "root", "irodoriha37E") or die("接続失敗");
 $mydb = mysql_select_db("shop", $con) or die("dbがありません");
 $query = "SELECT id, shohin_mei, shohin_bunrui FROM Shohin";
 $res = mysql_query($query);
